@@ -1,0 +1,13 @@
+{% extends "main.html" %}
+{% block content %}
+<body>
+    <form method="POST" enctype="multipart/form-data">
+        {{ form.hidden_tag() }}
+        {{ form.radiografia }}
+        {% for error in form.radiografia.errors %}
+            <span style="color: red;">{{ error }}</span>
+        {% endfor %}
+        {{ form.submit }}
+   </form>
+</body>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends "main.html" %}
+{% block content %}
+<body>
+    <p>{{wellcome}}</p>
+    {% if photo_url %}
+        <br>
+        <img src="{{ photo_url }}">
+    {% else %}
+        <p>Sin imagenes cargadas</p>
+    {% endif %}
+</body>
+{% endblock %}
