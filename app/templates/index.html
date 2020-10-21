@@ -1,12 +1,9 @@
 {% extends "main.html" %}
 {% block content %}
-<body>
-    <p>{{wellcome}}</p>
-    {% if photo_url %}
-        <br>
-        <img src="{{ photo_url }}">
-    {% else %}
-        <p>Sin imagenes cargadas</p>
-    {% endif %}
-</body>
+
+
+    <h1 class="mt-5">Estadisticas del dataset</h1>
+    <p class="lead">Presentamos las estadisticas del dataset</p>
+    
+
 {% endblock %}

@@ -1,13 +1,21 @@
 {% extends "main.html" %}
 {% block content %}
-<body>
-    <form method="POST" enctype="multipart/form-data">
-        {{ form.hidden_tag() }}
-        {{ form.radiografia }}
-        {% for error in form.radiografia.errors %}
-            <span style="color: red;">{{ error }}</span>
-        {% endfor %}
-        {{ form.submit }}
-   </form>
-</body>
+
+
+<form method="POST" enctype="multipart/form-data">
+  <div class="form-group">
+    {{ form.hidden_tag() }}
+    {{ form.radiografia }}
+    {% for error in form.radiografia.errors %}
+        <span style="color: red;">{{ error }}</span>
+    {% endfor %}
+    {{ form.submit }}
+  </div>
+</form>
+{% if photo_url %}
+    <br>
+    <img src="{{ photo_url }}" width="50%" height="50%">
+{% else %}
+    <p>Sin imagenes cargadas</p>
+{% endif %}
 {% endblock %}

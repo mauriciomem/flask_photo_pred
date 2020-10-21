@@ -6,8 +6,11 @@ from app.forms import UploadForm, FlaskForm, secure_filename
 
 @app.route("/", methods=["GET"])
 def index():
-    wellcome='hello world'
-    return render_template('index.html', wellcome=wellcome)
+    return render_template('index.html')
+
+@app.route("/bootstrap", methods=["GET"])
+def bootstrap():
+    return render_template('bootstrap.html')
 
 @app.route("/hello")
 @app.route("/hello/<name>")
@@ -22,6 +25,6 @@ def upload():
         filename = secure_filename(f.filename)
         f.save(os.path.join(app.config['UPLOAD_PHOTO_FOLDER'], filename))
         filerelpath=os.path.join('static/radio_uploads', filename)
-        return render_template('index.html', photo_url=filerelpath)
+        return render_template('load_radio.html', form=form, photo_url=filerelpath)
 
     return render_template('load_radio.html', form=form)
