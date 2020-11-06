@@ -39,7 +39,7 @@ RUN mkdir $APP_HOME
 WORKDIR $APP_HOME
 
 # update alpine packages
-RUN apt-get update && apt-get install -y --no-install-recommends ca-certificates netcat-openbsd tzdata
+RUN apt-get update && apt-get install -y --no-install-recommends ca-certificates tzdata libgl1-mesa-dev
 
 # configure timezone
 RUN cp /usr/share/zoneinfo/${DEFAULT_TZ} /etc/localtime && apt-get purge -y tzdata && rm -rf /var/lib/apt/lists/*
