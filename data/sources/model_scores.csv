@@ -1,0 +1,7 @@
+gnb,knn,knn_gs,lr,lr_gs,metrics
+0.86,0.88,0.9,0.93,0.94,Accuracy
+0.75,0.79,0.81,0.86,0.88,Recall
+0.85,0.88,0.89,0.94,0.94,Specificity
+0.93,0.94,0.95,0.97,0.97,Precision
+0.07,0.06,0.05,0.03,0.03,False positive rate (FPR)
+0.8,0.84,0.84,0.9,0.9,F1-Score

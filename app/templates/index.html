@@ -1,9 +1,55 @@
 {% extends "main.html" %}
 {% block content %}
 
+<div class="container-fluid">
+    <div class="row flex-xl-nowrap">
+        <div class="d-none d-xl-block col-xl-2 mt-5">
+            <div class="list-group list-group-flush">
+                <a class="list-group-item list-group-item-action" href="#modelos_clasificacion">Modelos de Clasificacion</a>
+                <a class="list-group-item list-group-item-action" href="#resultados_modelos">Resultados</a>
+                <a class="list-group-item list-group-item-action" href="#Visualizacion">Visualizacion</a>
+            </div>
+        </div>
+        <main class="col-12 col-md-9 col-xl-9 py-md-3 pl-md-5 bd-content" role="main">
+            <h1 class="display-4 mt-2 mb-2" id="content">Modelos de Clasificación</h1>
+            <p class="lead mb-5"> Resultado de metricas analizadas sobre los modelos de clasificación aplicados en el desafío anterior.</p>
+            <h1 class="mt-2 mb-2">Resultados</h1>
+            <p>  Detalle de modelos de clasificacion analizados.</p>
+            <div class="row">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        {% for label, content in scores.iterrows() %}
+                        <th scope="col">{{content.index[label]}}</td>
+                        {% endfor %}
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for label, content in scores.iterrows() %}
+                    <tr>
+                        {% for x in content %}
+                        <td>{{x}}</td>
+                        {% endfor %}
+                    </tr>
+                    {% endfor %}
+                </tbody>
+                </table>
+            </div>
+            <div class="row">
+                <h3>Visualizacion</h3>
+                <p>De acuerdo a la performance de los modelos analizados, utilizaremos el modelo de Regresion Logistica optimizado via cross validation con Grid Search para efectuar las predicciones de las imagenes de tomografia. Inclusive se tomaran los hiperparametros del modelo para realizar un analisis de la dimensionalidad del data set.</p>
+                <div class="col-12 px-md-2">
+                    <div id="bargraph">
+                        <script>
+                            var graphs = {{graphjs | safe}};
+                            Plotly.plot('bargraph',graphs,{});
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
 
-    <h1 class="mt-5">Estadisticas del dataset</h1>
-    <p class="lead">Presentamos las estadisticas del dataset</p>
-    
 
 {% endblock %}

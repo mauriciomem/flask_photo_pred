@@ -6,6 +6,6 @@ def new_app():
     app.config.from_object(Config)
 
     with app.app_context():
-        from . import routes, forms
+        from . import routes, forms, images
         
         return app

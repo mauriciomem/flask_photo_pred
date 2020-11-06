@@ -1,0 +1,69 @@
+{% extends "main.html" %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row flex-xl-nowrap">
+        <div class="d-none d-xl-block col-xl-2 mt-5">
+            <div class="list-group list-group-flush">
+                <a class="list-group-item list-group-item-action" href="#how-it-works">PCA</a>
+                <a class="list-group-item list-group-item-action" href="#supported-content">Analisis basicos</a>
+                <a class="list-group-item list-group-item-action" href="#text">5 componentes principales</a>
+                <a class="list-group-item list-group-item-action" href="#text">2 componentes principales</a>
+                <a class="list-group-item list-group-item-action" href="#text">Varianza explicada</a>
+                <a class="list-group-item list-group-item-action" href="#text">Isomap</a>
+                <a class="list-group-item list-group-item-action" href="#text">TNSE</a>
+            </div>
+        </div>
+        <main class="col-12 col-md-9 col-xl-9 py-md-3 pl-md-5 bd-content" role="main">
+            <h1 class="display-4 mt-2 mb-2" id="content">PCA</h1>
+            <p class="lead mb-5">Principal component analysis</p>
+            <h1 class="mt-2 mb-2">Analisis basicos</h1>
+            <p>Dada la cantidad de features sobre la que debemos trabajar (10000), decidimos aplicar PSA para reducir su número y analizar gráficamente el resultado.</p>
+            <div class="row">
+                <div class="col-6 px-md-2">
+                    <div id="scatterplot">
+                        <script>
+                            var graphs1 = {{graphjs | safe}};
+                            Plotly.plot('scatterplot',graphs1,{});
+                        </script>
+                    </div>
+                </div>
+                <div class="col-6 mt-5">
+                    <h2 class="mt-2 mb-4">Dos componentes pincipales</h2>
+                    <p>
+                        Vemos que PCA logró encontrar alguna estructura en los datos pero no llegó a separar bien a la mayoría de los números. Por ejemplo, el segundo componente parece distinguir bien entre 0 y 1. 
+                    </p><p>Un punto importante a remarcar es que estamos ploteando usando las etiquetas de los registros. Es decir, tenemos más información que la que tendríamos en un problema típico de aprendizaje no supervisado. 
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-4 mt-4">
+                    <h2 class="mt-2 mb-2">Cinco componentes pincipales</h2>
+                    <p>
+                        Podemos intuir algún tipo de estructura o separación entre grupos, pero evidentemente los datos son demasiado complejos y no lineales para que PCA pueda capturar correctamente la estructura y separarlos en grupos distintos (acorde a su etiqueta).
+                    </p>
+                </div>
+                <div class="col-8 px-md-2">
+                    <div id="pairplot">
+                        <script>
+                            var graphs2 = {{graphjs2 | safe}};
+                            Plotly.plot('pairplot',graphs2,{});
+                        </script>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 px-md-2">
+                    <h2 class="mt-2 mb-2">Varianza explicada</h2>
+                    <div id="lineplot">
+                        <script>
+                            var graphs3 = {{graphjs3 | safe}};
+                            Plotly.plot('lineplot',graphs3,{});
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+{% endblock %}

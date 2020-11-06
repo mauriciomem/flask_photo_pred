@@ -1,0 +1,77 @@
+{% extends "main.html" %}
+
+  {% block content %}
+  <div class="container-fluid">
+    <div class="row flex-xl-nowrap">
+        <main class="col-12 col-md-9 col-xl-9 py-md-3 pl-md-5 bd-content" role="main">
+            <h1 class="mt-2 mb-5" id="content">Carga de imagen</h1>
+            <p class="lead mb-5"> Seleccione la imagen de tomografia para iniciar el analisis de patologia</p>
+            <div class="row mx-auto mb-5">
+                <form method="POST" enctype="multipart/form-data">
+                  <div class="form-group ml-5">
+                    {{ form.hidden_tag() }}
+                    {{ form.radiografia }}
+                    {% for error in form.radiografia.errors %}
+                        <span style="color: red;">{{ error }}</span>
+                    {% endfor %}
+                    {{ form.submit }}
+                  </div>
+                </form>
+            </div>
+            <div class="row">
+              <div class="col-6 px-md-2">
+                <div class="card-deck">
+                  {% if photo_url %}
+                  <div class="card">
+                    <img src="{{ photo_url }}" class="card-img-top" alt="nueva_carga">
+                    <div class="card-body">
+                      <h5 class="card-title">Sintomas de {{ predict }}</h5>
+                      <p class="card-text">{{ copete }}</p>
+                    </div>
+                  </div>
+                  <div class="card">
+                    <img src="{{ lime_photo_url }}" class="card-img-top" alt="nueva_carga_lime">
+                    <div class="card-body">
+                      <h5 class="card-title">Determinacion {{ predict }}</h5>
+                      <p class="card-text">{{ copete }}</p>
+                    </div>
+                  </div>
+                  {% else %}
+                  {% endif %}
+              </div>
+            </div>
+              <div class="col-6 px-md-2">
+                {% if photo_url %}
+                <p>{{recomendacion}}</p>
+                {% else %}
+                {% endif %}
+              </div>      
+            </div>
+            <div class="row mt-5">
+              {% if predict_proba is defined %}
+                <h4>Probablidad asociada a prediccion:</h4>
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col">Covid-19</th>
+                      <th scope="col">Normal</th>
+                      <th scope="col">Neumonia Viral</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                    {% for pred in predict_proba %}
+                      <td>{{ pred }}</td>
+                    {% endfor %}
+                  </tr>
+                  </tbody>
+                </table>
+              {% else %}
+              {% endif %}
+            </div>
+        </main>
+    </div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,31 @@
+score,metrics,model
+0.86,Accuracy,Gaussian Naive Bayes
+0.75,Recall,Gaussian Naive Bayes
+0.85,Specificity,Gaussian Naive Bayes
+0.93,Precision,Gaussian Naive Bayes
+0.07,False positive rate (FPR),Gaussian Naive Bayes
+0.8,F1-Score,Gaussian Naive Bayes
+0.93,Accuracy,Logistic Regression
+0.86,Recall,Logistic Regression
+0.94,Specificity,Logistic Regression
+0.97,Precision,Logistic Regression
+0.03,False positive rate (FPR),Logistic Regression
+0.9,F1-Score,Logistic Regression
+0.94,Accuracy,Logistic Regression GS
+0.88,Recall,Logistic Regression GS
+0.94,Specificity,Logistic Regression GS
+0.97,Precision,Logistic Regression GS
+0.03,False positive rate (FPR),Logistic Regression GS
+0.9,F1-Score,Logistic Regression GS
+0.88,Accuracy,KNeighborsClassifier
+0.79,Recall,KNeighborsClassifier
+0.88,Specificity,KNeighborsClassifier
+0.94,Precision,KNeighborsClassifier
+0.06,False positive rate (FPR),KNeighborsClassifier
+0.84,F1-Score,KNeighborsClassifier
+0.9,Accuracy,KNeighborsClassifier GS
+0.81,Recall,KNeighborsClassifier GS
+0.89,Specificity,KNeighborsClassifier GS
+0.95,Precision,KNeighborsClassifier GS
+0.05,False positive rate (FPR),KNeighborsClassifier GS
+0.84,F1-Score,KNeighborsClassifier GS
