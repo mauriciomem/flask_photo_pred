@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+  rxapp:
+    image: mauriciomem/rxapp:v0.1
+    build: .
+    command: gunicorn --bind 0.0.0.0:5000 radioapp:app
+    ports:
+      - 5000:5000
